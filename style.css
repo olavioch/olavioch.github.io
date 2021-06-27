@@ -1,0 +1,216 @@
+h1{
+    background-color: black;
+    border-radius: 30px;
+    box-shadow: 0 0 10px black;
+    padding: 5px;
+}
+.site{
+    display:flex;
+    justify-content: center;
+}
+.img_perfil{
+    width: 300px;
+    height: 300px;
+    border-radius: 100%;
+    box-shadow: 0px 0px 20px 0px #9a9292;
+    margin-right: 18px;
+}
+
+.site-cont{
+    width:90%;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 30px;
+    margin-bottom: 15px;
+    padding-bottom: 25px;
+    padding-top: 25px;
+}
+body{
+    margin: 0;
+    background-color: #231e1e;
+}
+.navb{
+    width:90%;
+    background-color: white;
+    border-radius: 30px;
+    margin: auto;
+    margin-top:10px;
+    padding: 3px;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline:10px ;
+}
+
+ul{
+    list-style: none;
+    margin:0;
+    justify-content: center;
+    align-items: center;
+}
+.tecno-list li:nth-child(1){
+    background-color: #231e1e;
+}
+li{
+    margin-right: 10px;
+    background-color: #231e1e;
+    color: white;
+    padding: 8px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 1s;
+    cursor:auto;
+}
+li:hover, li:nth-child(1){
+    background-color: #4d3e3e; 
+}
+li a{
+    color: white;
+    text-decoration: none;
+}
+li a:hover{
+    color: white;
+    text-decoration: none;
+}
+.navb, ul{
+    display: flex;
+}
+span{
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #04f3ff;
+    text-shadow: 1px 0px black;
+}
+.contato{
+    margin:auto;
+}
+.perfil-desc{
+    margin-left: 65px;
+    margin-top: 75px;
+    background-color: black;
+    color: white;
+    padding: 15px;
+    width: 80%;
+    border-radius: 5px;
+    background-color: #231e1e;
+    font-weight: lighter;
+    font-style: italic;
+}
+.btn{
+    margin-left: 11%;
+    margin-top: 4%;
+}
+.tecnologia{
+    display: block;
+}
+.tecno{
+    display:flex;
+    justify-content: space-around;
+}
+.carousel-main{
+    display:block
+}
+
+.img-car{
+    width: inherit;
+    height: 70vh;
+    border-radius: 10px;
+}
+.porti-grid{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 10px;
+}
+.grid-item{
+    background-color: white;
+    transition: box-shadow 1s;
+    margin: 5px;
+    box-shadow: 0 0 9px #bbb9b9;
+    border-radius: 30px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bolder;
+    font-size: xx-large;
+    color: white;
+    text-shadow: 0 0 6px black;
+    cursor: pointer;
+}
+.grid-item:hover{
+    box-shadow: -7px 7px 0px 0px #bbb9b9;
+
+}
+
+h4{
+    color:white;
+    text-align: center;
+    background-color: #231e1e;
+    border-radius: 10px;
+}
+.grid-item:nth-child(1){
+    background-image: url(assets/itens/Controle.png);
+    background-size: cover;
+}
+
+.grid-item:nth-child(2){
+    background-image: url(assets/itens/logo-correio.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-y: 57px;
+}
+.grid-item:nth-child(3){
+    background-image: url(assets/itens/quiz.jpeg);
+    background-repeat: no-repeat;
+    background-position: 48px 45px;
+    background-size: 150px;
+}
+.grid-item:nth-child(4){
+    background-image: url(assets/itens/logococa.png);
+    background-size: cover;
+    background-position-y: 226px;
+}
+.grid-item:nth-child(5){
+    background-image: url(assets/itens/kingston_titulo.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-y: 56px;
+}
+.grid-item:nth-child(6){
+    background-image: url(assets/itens/bg.jpg);
+    background-size: cover;
+}
+.icon{
+    background-image: url(assets/itens/icons.png);
+    width: 50px;
+    height: 50px;
+    background-size: 200px;
+    border-radius: 100%;
+}
+.style-icon{
+    transition: width 1s;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 0 5px 0px #777777;
+    border-radius: 30px;
+    margin-left: 24px;
+    padding-right: 28px;
+}
+.d-icon{
+    display: flex;
+}
+
+.style-icon:nth-child(2) .icon{
+    background-position: 80px;
+
+}
+.style-icon:nth-child(3) .icon{
+    background-position: 125px 54px;
+}
+.style-icon:nth-child(4) .icon{
+    background-position: 125px;
+}
+a{
+    color: black;
+    text-decoration: none;
+}

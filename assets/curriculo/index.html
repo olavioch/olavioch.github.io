@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="style/style.css">
+
+    <style type="text/css" media="print">
+        .noprint {
+            display: none
+        }
+        
+        .print {
+            display: block !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <header class="el-header noprint">
+            <div class="icon-btns">
+                <i class="icon-list" @click="changeLeftMenu"></i>
+                <i class="icon-skip_previous" v-bind:class="{'disabled': currentPage == 1}" @click="changeCurrentPage('first')"></i>
+                <i class="icon-play_arrow prev-icon" v-bind:class="{'disabled': currentPage == 1}" @click="changeCurrentPage('prev')"></i>
+                <i class="icon-play_arrow" v-bind:class="{'disabled': currentPage == pageNum}" @click="changeCurrentPage('next')"></i>
+                <i class="icon-skip_next" v-bind:class="{'disabled': currentPage == pageNum}" @click="changeCurrentPage('last')"></i>
+                <select v-model="currentPage">
+                    <option v-for="page in pageNum" v-bind:value="page">page {{ page }}</option>
+                </select>
+                <i class="icon-zoom_in" v-bind:class="{'disabled': zoomNum == 2}" @click="modifyZoom('in')"></i>
+                <select v-model="zoomNum">
+                    <option value="0.5">50%</option>
+                    <option value="0.6">60%</option>
+                    <option value="0.7">70%</option>
+                    <option value="0.8">80%</option>
+                    <option value="0.9">90%</option>
+                    <option value="1.0" selected>100%</option>
+                    <option value="1.1">110%</option>
+                    <option value="1.2">120%</option>
+                    <option value="1.3">130%</option>
+                    <option value="1.4">140%</option>
+                    <option value="1.5">150%</option>
+                    <option value="1.6">160%</option>
+                    <option value="1.7">170%</option>
+                    <option value="1.8">180%</option>
+                    <option value="1.9">190%</option>
+                    <option value="2.0">200%</option>
+                </select>
+                <i class="icon-zoom_out" v-bind:class="{'disabled': zoomNum == 0.5}" @click="modifyZoom('out')"></i>
+                <i class="icon-format_align_left" @click="textAlign = 'left'"></i>
+                <i class="icon-format_align_center" @click="textAlign = 'center'"></i>
+                <i class="icon-format_align_right" @click="textAlign = 'right'"></i>
+                <i class="icon-print" @click="window.print()"></i>
+            </div>
+        </header>
+
+        <aside class="noprint" width="240px" v-show="ifMenuShow">
+            <nav class="tabNav">
+                <ul>
+                    <li v-bind:class="{ 'curr': currentNav == 0 }" @click="currentNav = 0">Page</li>
+                    <li v-bind:class="{ 'curr': currentNav == 1 }" @click="currentNav = 1">Bookmark</li>
+                </ul>
+
+                <div class="clear"></div>
+            </nav>
+
+            <div class="tab-conent scrollbar" v-bind:style="{ height: asideHeight + 'px' }">
+
+            <section v-show="currentNav == 0">
+                <ul class="page-menu">
+                    <li v-for="page in pageNum" v-bind:class="{ 'curr': currentPage == page }" @click="changePage(page)"><i class="icon-file-text2"></i> page {{ page }}</li>
+                </ul>
+            </section>
+
+            <section v-show="currentNav == 1">
+                <ul class="page-menu">
+                    <li v-for="page in pageNum" v-bind:class="{ 'curr': currentPage == page }" @click="changePage(page)"><i class="icon-turned_in_not"></i> Bookmark {{ page }}</li>
+                </ul>
+            </section>
+        </div>
+
+        </aside>
+        <div class="main scrollbar noprint"  v-bind:style="{ height: mainHeight + 'px' }" v-bind:class="{ 'mainLeftM': ifMenuShow, 'aleft': textAlign === 'left','acenter': textAlign === 'center','aright': textAlign === 'right'}">
+            <div class="conent" v-html="pageContent" v-bind:style="zoomStyle"></div>
+
+            <div class="clear"></div>
+        </div>
+
+        <!--专门只为打印的内容-->
+        <div class="conent print" style="display:none" v-html="pageContent"></div>
+    </div>
+</body>
+<!-- 先引入 Vue -->
+<script src="js/vue.min.js"></script>
+<script>
+
+var app = new Vue({
+        el: '#app',
+        data: function() {
+            return {
+                // visible: false,
+                isCollapse: false,
+                currentNav: 0,
+                activeName2: 'first',
+                pageNum: 1, 
+                currentPage: 1,
+                pageContent: '',
+                asideHeight: 300,
+                mainHeight: 300,
+                ifMenuShow: true,
+                zoomNum: '1.0',
+                textAlign: 'left',
+                zoomStyle: {},
+                pageDatas: ['<div style="position:absolute;top:0.000000px;left:0.000000px"><nobr><img height="1123.000000" width="794.000000" src ="bgimg/bg00001.jpg"/></nobr></div><p><span style="font-family:Arial;font-size:12.000000px;font-weight:bold;color:#000000;"><span style="position:absolute;top:48.527832px;left:280.362122px"><nobr>Olavo Argemiro Silva Resende </nobr></span></span></p><p><span style="font-family:Arial;font-size:10.000000px;font-style:normal;font-weight:normal;color:#000000;"><span style="position:absolute;top:87.229897px;left:210.067734px"><nobr>Email: olaviochampions@gmail.com - Celular: (21) 97651.0776 </nobr></span></span></p><p><span style="font-family:Arial;font-size:10.000000px;font-style:normal;font-weight:normal;color:#000000;"><span style="position:absolute;top:104.861732px;left:157.191223px"><nobr>Endereço: Rua Cruz da Fé, número 61 - São João de Meriti/RJ - CEP 25545-170 </nobr></span></span></p><p><span style="font-family:Arial;font-size:10.000000px;font-style:normal;font-weight:normal;color:#000000;"><span style="position:absolute;top:122.493568px;left:204.597977px"><nobr>Linkedin: <a href="https://www.linkedin.com/in/olavo-argemiro-12bb981b1/" target="_blank">https://www.linkedin.com/in/olavo-argemiro-12bb981b1/ </a></nobr></span></span></p><p><span style="font-family:Arial;font-size:10.000000px;font-style:normal;font-weight:normal;color:#000000;"><span style="position:absolute;top:175.389084px;left:48.000000px"><nobr>Busco no mercado atualização e desenvolvimento profissional na área de Desenvolvedor Web Full Stack. </nobr></span></span></p><p><span style="font-family:Arial;font-size:10.000000px;font-style:normal;font-weight:normal;color:#000000;"><span style="position:absolute;top:193.020920px;left:48.000000px"><nobr>Liste suas principais realizações profissionais, informando dados concretos sempre que possível. </nobr></span></span></p><p><span style="font-family:Arial;font-size:10.000000px;font-style:normal;font-weight:normal;color:#000000;"><span style="position:absolute;top:228.284592px;left:72.000000px"><nobr>- Habilidades pessoais: Pensamento crítico e analítico, flexível para trabalho em metodologias ágeis, boa </nobr></span><span style="position:absolute;top:245.916428px;left:96.000000px"><nobr>comunicação, ótima adaptação a cultura empresarial e bom desenvolvimento pessoal para trabalhar em </nobr></span><span style="position:absolute;top:263.548248px;left:96.138832px"><nobr>equipe . </nobr></span></span></p><p><span style="font-family:Arial;font-size:10.000000px;font-style:normal;font-weight:normal;color:#000000;"><span style="position:absolute;top:281.180084px;left:72.000000px"><nobr>- Habilidades profissionais: Conhecimentos básicos em linguagens de programação C#(.dotnet framework, </nobr></span><span style="position:absolute;top:298.811920px;left:96.000000px"><nobr>Unity Engine), Java, html, css(bootstrap) e js. Habilidades de lidar com editores de imagem(photoshop e </nobr></span><span style="position:absolute;top:316.443756px;left:96.000000px"><nobr>gimp), softwares 3d (blender) e engine de jogos(Unity3d). Metodologias ágeis(Scrum). Repositório Git e </nobr></span><span style="position:absolute;top:334.075592px;left:96.000000px"><nobr>Github. </nobr></span></span></p><p><span style="font-family:Arial;font-size:10.000000px;font-style:normal;font-weight:normal;color:#000000;"><span style="position:absolute;top:386.971100px;left:48.000000px"><nobr>Cursando 3º semestre de Eng. da Computação - Unicsul </nobr></span></span></p><p><span style="font-family:Arial;font-size:10.000000px;font-style:normal;font-weight:normal;color:#000000;"><span style="position:absolute;top:404.602936px;left:48.000000px"><nobr>Estudante da Parças Developers School – Bootcamp de Automação de Testes </nobr></span></span></p><p><span style="font-family:Arial;font-size:10.000000px;font-style:normal;font-weight:normal;color:#000000;"><span style="position:absolute;top:439.866608px;left:48.000000px"><nobr>Conhecimento em: </nobr></span></span></p><p><span style="font-family:Arial;font-size:10.000000px;font-style:normal;font-weight:normal;color:#000000;"><span style="position:absolute;top:457.498474px;left:48.000000px"><nobr>-C# </nobr></span></span></p><p><span style="font-family:Arial;font-size:10.000000px;font-style:normal;font-weight:normal;color:#000000;"><span style="position:absolute;top:475.130310px;left:48.000000px"><nobr>-Java </nobr></span></span></p><p><span style="font-family:Arial;font-size:10.000000px;font-style:normal;font-weight:normal;color:#000000;"><span style="position:absolute;top:492.762146px;left:48.000000px"><nobr>-HTML </nobr></span></span></p><p><span style="font-family:Arial;font-size:10.000000px;font-style:normal;font-weight:normal;color:#000000;"><span style="position:absolute;top:510.393982px;left:48.000000px"><nobr>-CSS </nobr></span></span></p><p><span style="font-family:Arial;font-size:10.000000px;font-style:normal;font-weight:normal;color:#000000;"><span style="position:absolute;top:528.025818px;left:48.000000px"><nobr>-JS </nobr></span></span></p><p><span style="font-family:Arial;font-size:10.000000px;font-style:normal;font-weight:normal;color:#000000;"><span style="position:absolute;top:545.657654px;left:48.000000px"><nobr>-GIT </nobr></span></span></p><p><span style="font-family:Arial;font-size:10.000000px;font-style:normal;font-weight:normal;color:#000000;"><span style="position:absolute;top:563.289490px;left:48.000000px"><nobr>-MANUTENÇÃO EM HARDWARE </nobr></span></span></p><p><span style="font-family:Arial;font-size:10.000000px;font-style:normal;font-weight:normal;color:#000000;"><span style="position:absolute;top:580.921326px;left:48.000000px"><nobr>-INGLÊS AVANÇADO </nobr></span></span></p><p><span style="font-family:Arial;font-size:10.000000px;font-weight:bold;color:#000000;"><span style="position:absolute;top:616.184937px;left:48.000000px"><nobr>EXPERIÊNCIA (1 última empresa) </nobr></span></span></p><p><span style="font-family:Arial;font-size:10.000000px;font-weight:bold;color:#000000;"><span style="position:absolute;top:651.448669px;left:48.000000px"><nobr>AUTÔNOMO • São João de Meriti/RJ • 03/2019 – 01/2021 </nobr></span></span></p><p><span style="font-family:Arial;font-size:10.000000px;font-style:normal;font-weight:normal;color:#000000;"><span style="position:absolute;top:669.080444px;left:48.000000px"><nobr>Montagem e manuntenção de computadores e redes </nobr></span></span></p><p><span style="font-family:Arial;font-size:10.000000px;font-style:normal;font-weight:normal;color:#000000;"><span style="position:absolute;top:686.712402px;left:48.000000px"><nobr>Cargo </nobr></span></span></p><p><span style="font-family:Arial;font-size:10.000000px;font-style:normal;font-weight:normal;color:#000000;"><span style="position:absolute;top:704.344177px;left:72.000000px"><nobr>● Manutenção em hardware, correção de sistema operacional, instalação de redes.. </nobr></span></span></p><p><span style="font-family:Arial;font-size:10.000000px;font-weight:bold;color:#000000;"><span style="position:absolute;top:757.239685px;left:48.000000px"><nobr>EDUCAÇÃO </nobr></span></span></p><p><span style="font-family:Arial;font-size:10.000000px;font-style:normal;font-weight:normal;color:#000000;"><span style="position:absolute;top:792.503357px;left:48.000000px"><nobr>Graduação: Eng. da Computação - Unicsul - 01/2020 </nobr></span></span></p><p><span style="font-family:Arial;font-size:10.000000px;font-style:normal;font-weight:normal;color:#000000;"><span style="position:absolute;top:810.135193px;left:48.000000px"><nobr>Profissionalizante: Java Básico - Curso em Vídeo - 05/2016 </nobr></span></span></p><p><span style="font-family:Arial;font-size:10.000000px;font-style:normal;font-weight:normal;color:#000000;"><span style="position:absolute;top:827.767090px;left:162.792618px"><nobr>Scrum, C#, html, css e js - Digital Innovation One - 2019/2021 </nobr></span></span></p><p><span style="font-family:Arial;font-size:10.000000px;font-style:normal;font-weight:normal;color:#000000;"><span style="position:absolute;top:845.398865px;left:162.514938px"><nobr>Montagem e manutenção de computadores - Microlins - 03/2018 </nobr></span></span></p><p><span style="font-family:Arial;font-size:10.000000px;font-style:normal;font-weight:normal;color:#000000;"><span style="position:absolute;top:880.662415px;left:48.000000px"><nobr>Línguas: Inglês Avançado - English Booster - 2020/2021 </nobr></span></span></p>']
+            }
+        },
+        mounted: function() {
+            this.$nextTick(function() {
+                this.pageNum = this.pageDatas.length;
+                this.pageContent = this.pageDatas[0];
+
+                this.setLeftMenuHeight();
+            })
+        },
+        watch: {
+            'currentPage': function(newVal, oldValue) {
+                // console.log('newVal ' + newVal, 'oldValue ' + oldValue);
+                if (newVal) {
+                    this.pageContent = this.pageDatas[this.currentPage - 1];
+                }
+            },
+            'zoomNum': function(newVal, oldValue) {
+                if (newVal) {
+                    this.zoomStyle = {
+                        'transform': 'scale(' + newVal + ')',
+                        '-webkit-transform': 'scale(' + newVal + ')',
+                        '-ms-transform': 'scale(' + newVal + ')',
+                        '-moz-transform': 'scale(' + newVal + ')',
+                        '-o-transform': 'scale(' + newVal + ')'
+                    }
+                }
+            }
+        },
+        methods: {
+            
+            changeCurrentPage: function(methods) {
+                switch (methods) {
+                    case 'first':
+                        this.currentPage = 1;
+                        break;
+                    case 'prev':
+                        if (this.currentPage > 1) {
+                            this.currentPage -= 1;
+                        }
+                        break;
+                    case 'next':
+                        if (this.currentPage < this.pageNum) {
+                            this.currentPage += 1;
+                        }
+                        break;
+                    case 'last':
+                        this.currentPage = this.pageNum;
+                        break;
+                }
+            },
+
+            gotoPage: function(page) {
+                console.log(page);
+                this.currentPage = page;
+            },
+            modifyZoom: function(type) {
+                switch (type) {
+                    case 'in':
+                        if (this.zoomNum < 2) {
+                            // this.zoomNum = (this.zoomNum + 0.1).toFixed(1);
+                            this.zoomNum = (parseFloat(this.zoomNum) + 0.1).toFixed(1);
+                        }
+                        break;
+                    case 'out':
+                        if (this.zoomNum > 0.5) {
+                            this.zoomNum = (parseFloat(this.zoomNum) - 0.1).toFixed(1);
+                        }
+                        break;
+                    default:
+                        break;
+                }
+                console.log(this.zoomNum);
+            },
+            setLeftMenuHeight: function() {
+                // this.asideHeight = document.body.scrollHeight - 60;
+                this.mainHeight = document.documentElement.clientHeight - 60 - 20;
+                // 60为头部导航高度， 46为menu高度， 40为上下padding
+                this.asideHeight = this.mainHeight - 20 - 46;
+            },
+            changePage: function(page) {
+                this.currentPage = page;
+                // this.pageContent = this.pageDatas[page - 1];
+            },
+            changeLeftMenu: function() {
+                this.ifMenuShow = !this.ifMenuShow;
+            }
+        }
+    });
+
+function gotoPage(page) {
+    console.log(page);
+    app.gotoPage(page);
+}
+
+</script>
+
+</html>
