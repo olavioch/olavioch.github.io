@@ -144,7 +144,7 @@ class Portifolio extends React.Component{
                         <div className="grid-item">
                             <a href="projetos/kingston/index.html" target="_blank">Kingston</a>
                         </div>
-                        <div className="grid-item"><a href="projetos/awa/home.html" target="_blank">Awax Food</a></div>
+                        <div className="grid-item"><a href="projetos/awa/index.html" target="_blank">Awax Food</a></div>
                     </div>
                     </div>    
                 </div>                
