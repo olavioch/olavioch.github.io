@@ -231,8 +231,9 @@ aside .title_user{
 }
 .luz-ativado:hover
 {
-    background: rgba( 102, 254, 209, 0.60 );
+    background-color: rgba( 102, 254, 209, 0.60 );
     box-shadow: 0 8px 32px 0 rgb(102, 254, 209);
+    transition: background-color 0.5s, box-shadow 0.5s;
 }
 .luz{
     background: rgba( 102, 254, 209, 0.60 );

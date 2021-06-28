@@ -7,6 +7,7 @@ body{
     margin: 0;
     font-family: sans-serif;
     background-color: #030820;
+    overflow: hidden;
 }
 /*fim interface geral*/
 
@@ -130,8 +131,12 @@ aside{
     margin-left: 35px;
     padding-bottom: 25px;
     margin-right: 15px;
+    transform: matrix(1, 0, 0, 1, 0, 0);
+    transition: transform 1s;
 }
-
+.user:hover{
+    transform: matrix(0.9, 0, 0, 0.9, 0, 0);
+}
 aside .title_user{
     padding: 3px;
     background-color:#3A277C;
@@ -179,7 +184,12 @@ aside .title_user{
     height: 100px;
     background-color:rgba(18, 16, 56);
     border-radius: 10px;
+    transform: matrix(1, 0, 0, 1, 0, 0);
+    transition: transform 1s;
    }
+.products_block:hover{
+    transform: matrix(1.1, 0, 0, 1.1, 0, 0);
+}
 
 .products_info{
     background-color:#3A277C;
