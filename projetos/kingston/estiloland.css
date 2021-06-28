@@ -8,6 +8,9 @@ li a, button a{
     color: white;
 
 }
+a{
+    cursor: pointer;
+}
 
 .container{
     width: 98%;
@@ -47,29 +50,52 @@ strong a{
     display: flex;
     margin:0px;
 }
-.list_titulo li{
+.list_titulo li, .fim-desc a{
     display: block;
     margin-right: 10px;
     background-color: red;
     padding: 16px;
     box-shadow:4px 4px 5px rgb(53, 53, 53);
 }
+.fim-desc a{
+    margin-top: 10px;
+    color: white;
+    text-decoration: none;
+}
 
-header{
+header, .contato, .finalizando{
     display: flex;
     align-items: center;
-    justify-content: center;
     width: 100%;
+    }
+header{
     height: 500px;
     background-color: red;
+    justify-content: center;
+
 }
-.bloco{
-    display: flex;
-    width: 80%;
+.contato{
     height: 250px;
-    margin-top: 50px;
-    box-shadow:4px 4px 15px rgb(53, 53, 53);
-    border: 1px solid rgb(211, 211, 211);
+    background-color: red;
+    justify-content: center;
+}
+.finalizando{
+    height: 250px;
+    background-color: #353535;
+    justify-content: space-around;
+}
+.fim-desc{
+    color: white;
+    text-shadow: 0 0 0px black;
+    display: flex;
+    font-size: small;
+    justify-content: center;
+}
+.fim-desc:nth-child(1){
+    margin-left: 30px;
+}
+.fim-desc:nth-child(3){
+    margin-right: 30px;
 }
 
 .desc_title{
@@ -77,6 +103,13 @@ header{
     height: 250;
     padding: 10px;
     background-color: white;
+}
+.desc-block{
+    text-align: center;
+}
+p{
+    font-size: smaller;
+    color: grey;
 }
 .blc_img img{
     height:250px;
@@ -161,3 +194,85 @@ aside{
 a {
     cursor: hand;
     }
+.card{
+    margin: 15px;
+    width: 230px;
+    box-shadow: 0 0 7px #d4d4d4;
+}
+.card .img-block{
+    height: 50%;
+}
+.card:nth-child(1) .img-block{
+    background-image: url(https://th.bing.com/th/id/Rdda18f8…?rik=WfzGl4QYDNlm4Q&riu=http%3a%2f%2fwww.aprimorar.com%2fwp-content%2fuploads%2f2014%2f12%2fERP.jpg&ehk=s2OcB8Rd8xvj7snjJRBeC1PO%2fmXU9HfsiaSq4kMCFEM%3d&risl=&pid=ImgRaw);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.card:nth-child(2) .img-block{
+    background-image: url(https://www.dickerdata.com.au/hubfs/DDA-135%20SASE%20Blog.jpeg#keepProtocol);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.card:nth-child(3) .img-block{
+    background-image: url(https://th.bing.com/th/id/OIP.VSkSCPLuhdsv9nM1yMAeRwHaHa?pid=ImgDet&w=1536&h=1536&rs=1);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.bloco{
+    box-shadow:4px 4px 15px rgb(226, 226, 226);
+    border: 1px solid rgb(211, 211, 211);
+}
+.bloco-card, .bloco{
+    display: flex;
+    width: 95%;
+    height: 285px;
+    margin-top: 50px;
+    justify-content: space-evenly;
+}
+.formulario{
+    background-color: white;
+    padding: 15px;
+    box-shadow: 0 0 14px #920000;
+}
+input{
+    margin-bottom: 2px;
+    margin-bottom: 5px;
+    border: none;
+    box-shadow: 0 0 6px 0px #cecece;
+    padding: 5px;
+    width:98%
+}
+textarea{
+    border: none;
+    box-shadow: rgb(206 206 206) 0px 0px 6px 0px;
+    margin: 0px;
+    width: 472px;
+    height: 60px;
+    resize: none; 
+}
+.icon-rede{
+    background-image: url(img/icons.png);
+    width: 30px;
+    height: 30px;
+    background-size: 170px;
+    border-radius: 100%;
+    margin-right:10px;
+}
+.icon-rede:nth-child(1){
+    background-position: -70px -9px;
+}
+.icon-rede:nth-child(2){
+    background-position: -33px -9px;
+}
+.icon-rede:nth-child(3){
+    background-position: -107px -9px;
+}
+.icon-rede:nth-child(4){
+    background-position: -70px -51px;
+}
+.desc-text{
+    font-size: small;
+    width: 40%;
+}
+.info .desc-text{
+    width: 200px;
+}

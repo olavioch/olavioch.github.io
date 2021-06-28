@@ -53,6 +53,7 @@ class Tecnologias extends React.Component{
                     <li>JavaScript</li>
                     <li>Git</li>
                     <li>Sass</li>
+                    <li>Bootstrap</li>
                     <li>Webpack</li>
                     <li>React</li>
                 </ul>
