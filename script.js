@@ -130,7 +130,7 @@ class Portifolio extends React.Component{
                     <h4 className="mt-5 p-3">Projetos</h4>
                     <div className="porti-grid">
                         <div className="grid-item">
-                            <a href="projetos/desafio/main.html" target="_blank">Desafio</a>
+                            <a href="projetos/desafio/index.html" target="_blank">Desafio</a>
                         </div>
                         <div className="grid-item">
                             <a href="projetos/bootstrap-form/index.html" target="_blank">Correios</a>
