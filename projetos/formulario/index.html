@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1,  shrink-to-fit=no">
+    <title>forms bootstrap</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+ 
+</head>
+<body>
+    <div  id="rotation">
+    <div id="area" class="area shadow">
+        <img src="assets/images/logo-correio.png" alt="">
+        <div class="h4">Faça seu Login</div>
+        <form action="" method="post">
+            <input type="email" class="form-control mt-4" name="email" 
+            placeholder="Digite seu email...">
+            <input type="password" class="form-control mt-4" name="password" 
+            placeholder="Digite sua senha...">
+            <a href="#" onclick="esqueci()" class="d-block mt-4 mb-4"> Esqueci minha senha</a>
+            <input type="submit" class="btn btn-primary btn-block btn-lg">
+        </form>
+    </div>
+    <div id="area-costa" class="area-costa shadow">
+        <form action="" method="post">
+            <label>
+                Nome Completo:
+                <input type="text" class="form-control" name="name"
+                placeholder="Digite seu nome aqui">
+            </label>
+            <label>
+                Email:
+                <input type="email" class="form-control" name="email"
+                placeholder="Digite seu email aqui">
+            </label>
+            <label>
+                Senha:
+                <input type="password" class="form-control" name="password"
+                placeholder="Senha">
+            </label>
+            <label>
+                Nova Senha:
+                <input type="password" class="form-control" name="password"
+                placeholder="Nova senha">
+            </label>
+            <label>
+                <input type="checkbox" name="termos" id="termos" class="mt-2 mb-4"> "Aceito os termos de privacidade"
+            </label>
+            <input type="submit" class="btn btn-primary btn-block btn-lg">
+            <a href="#" onclick="voltar()">Voltar</a>
+        </form>
+    </div>
+    </div>
+    <div id="help" onclick="help()"><img src="assets/images/help.png" alt=""></div>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

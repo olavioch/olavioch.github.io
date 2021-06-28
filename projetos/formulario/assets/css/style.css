@@ -1,0 +1,65 @@
+body{
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #ff7;
+    font-family: 'Calibri';
+    text-align: center;
+
+}
+.area, .area-costa{
+    max-width: 350px;
+    width: 100%;
+    height: auto;
+    background-color: white;
+    border-radius: 30px;
+    padding: 10px;
+    padding-top: 60px;
+    padding-bottom: 40px;
+    padding-inline: 20px;
+    transition: opacity 3s;
+}
+#rotation img{
+    width: inherit;
+    height: 70px;
+}
+.h4{
+    margin-top: 10px;
+    font-weight: 400;
+    margin-top: 30px;
+}
+.form-control{
+    margin-top: 10px;
+}
+.remenber, p{
+    padding-top: 15px;
+}
+#rotation{
+    transition: transform 3s ;
+}
+
+#area-costa{
+    transition: opacity 2s;
+    position: absolute;
+    top: -40px;
+    transform: rotateY(180deg)
+}
+#help{
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    cursor: pointer;
+    background-color: #007bff;
+    padding: 8px;
+    border-radius: 100%;
+
+}
+#help img{
+    width:40px;
+    height: 40px;
+}
+#help:hover{
+    background-color: #0069da;
+}
