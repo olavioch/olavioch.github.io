@@ -133,13 +133,13 @@ class Portifolio extends React.Component{
                             <a href="projetos/desafio/index.html" target="_blank">Desafio</a>
                         </div>
                         <div className="grid-item">
-                            <a href="projetos/bootstrap-form/index.html" target="_blank">Correios</a>
+                            <a href="projetos/formulario/index.html" target="_blank">Correios</a>
                         </div>
                         <div className="grid-item">
-                            <a href="projetos/bootstrap-quiz/index.html" target="_blank">Quiz</a>
+                            <a href="projetos/quiz/index.html" target="_blank">Quiz</a>
                         </div>
                         <div className="grid-item">
-                            <a href="projetos/flexbox/index.html" target="_blank">Coca Cola</a>
+                            <a href="projetos/coca/index.html" target="_blank">Coca Cola</a>
                         </div>
                         <div className="grid-item">
                             <a href="projetos/kingston/index.html" target="_blank">Kingston</a>
