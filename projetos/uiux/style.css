@@ -1,0 +1,44 @@
+body{
+    margin: 0;
+    font-family: monospace;
+}
+.container{
+    width: 100%;
+    overflow: hidden;
+}
+.d1{
+    background-color:#030820 ;
+}
+.d2{
+    background-image: url(desafiocomalteracao/img/ceunoturno.jpg) ;
+}
+.d3{
+    background-image:  url(desafioglassmorphism/img/ceucartoon.png);
+}
+.d1, .d2, .d3, .container{
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    transition: width 1s;
+}
+.d1, .d2, .d3{
+    align-items: center;
+    box-shadow: inset -2px 1px 5px 0px #000000;
+}
+a{
+    color: white;
+    text-shadow: 0 0 4px black;
+    text-decoration: none;
+    margin: 10px;
+    background-color: #180167;;
+    padding: 12px;
+    border-radius: 10px;
+    box-shadow: 0 0 16px 0px #005979;
+}
+h2{
+    color: white;
+    margin-bottom: 30px;
+}
+#bd3, #bd2, #bd1{
+    transition: opacity 1.5s;
+}
