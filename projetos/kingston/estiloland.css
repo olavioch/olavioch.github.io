@@ -30,7 +30,10 @@ button{
     border: 1px solid black;
     border-radius: 0; margin-right: 10px;
     background-color: red;
-
+    transition: background-color 1s;
+}
+button:hover{
+    background-color: rgb(121, 1, 1);
 
 }
 .radio strong{
@@ -56,6 +59,11 @@ strong a{
     background-color: red;
     padding: 16px;
     box-shadow:4px 4px 5px rgb(53, 53, 53);
+    cursor: pointer;
+    transition: background-color 1s;
+}
+.list_titulo li:hover, .fim-desc a:hover{
+    background-color: rgb(121, 1, 1);
 }
 .fim-desc a{
     margin-top: 10px;
@@ -79,6 +87,7 @@ header{
     background-color: red;
     justify-content: center;
 }
+
 .finalizando{
     height: 250px;
     background-color: #353535;
@@ -198,6 +207,11 @@ a {
     margin: 15px;
     width: 230px;
     box-shadow: 0 0 7px #d4d4d4;
+    transform: matrix(1, 0, 0, 1, 0, 0);
+    transition: transform 1s;
+}
+.card:hover{
+    transform: matrix(1.03, 0, 0, 1.03, 0, 0);
 }
 .card .img-block{
     height: 50%;
@@ -220,6 +234,11 @@ a {
 .bloco{
     box-shadow:4px 4px 15px rgb(226, 226, 226);
     border: 1px solid rgb(211, 211, 211);
+    transform: matrix(1, 0, 0, 1, 0, 0);
+    transition: transform 1s;
+}
+.bloco:hover{
+    transform: matrix(1.03, 0, 0, 1.03, 0, 0);
 }
 .bloco-card, .bloco{
     display: flex;
@@ -232,6 +251,11 @@ a {
     background-color: white;
     padding: 15px;
     box-shadow: 0 0 14px #920000;
+    transform: matrix(1, 0, 0, 1, 0, 0);
+    transition: transform 1s;
+}
+.formulario:hover{
+    transform: matrix(1.03, 0, 0, 1.03, 0, 0);
 }
 input{
     margin-bottom: 2px;
