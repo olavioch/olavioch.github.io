@@ -178,3 +178,4 @@ class App extends React.Component{
     }
 }
 ReactDOM.render(<App/>, document.getElementById('root'));
+//link para acesso: http://htmlpreview.github.io/?https://github.com/olavioch/portifolio/blob/master/index.html
