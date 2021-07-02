@@ -80,7 +80,7 @@ header{
     height: 500px;
     background-color: red;
     justify-content: center;
-
+    flex-direction: flex;
 }
 .contato{
     height: 250px;
@@ -293,6 +293,25 @@ textarea{
 .icon-rede:nth-child(4){
     background-position: -70px -51px;
 }
+.icon-antes, .icon-depois{
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    top: 260vh;
+    background-image: url(img/icons.jpg);
+    background-size: 140px;
+    border-radius: 100%;
+    box-shadow: 0 0 16px 2px #3e3e3e;
+    display:none;
+}
+.icon-antes{
+left: 10px;
+background-position: 140px 240px;
+}
+.icon-depois{
+right: 10px;
+background-position: 60px 240px;
+}
 .desc-text{
     font-size: small;
     width: 40%;
@@ -301,18 +320,16 @@ textarea{
     width: 200px;
 }
 @media (max-width : 760px){
+    body{
+        overflow-x: hidden;
+    }
     header{
         flex-direction: column;
     }
     .list_titulo{
         display: none;
     }
-}
-@media (max-width : 570px){
     .bloco-card{
-        flex-direction: column;
-    }
-    .card{
-        display: flex;
+        width: 150vw;
     }
 }
