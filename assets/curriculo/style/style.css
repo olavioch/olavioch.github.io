@@ -182,7 +182,7 @@ aside {
     top: 60px;*/
     float: left;
     border-right: solid 1px #ddd;
-    display:block;	
+    display:none;	
 }
 
 .tabNav li {
@@ -278,7 +278,7 @@ aside {
 }
 
 .mainLeftM {
-    margin-left: 260px;
+    margin-left: 0px;
 }
 
 .tab-conent {
