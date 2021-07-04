@@ -286,6 +286,7 @@ textarea{
     background-size: 170px;
     border-radius: 100%;
     margin-right:10px;
+	cursor: pointer;
 }
 .icon-rede:nth-child(1){
     background-position: -70px -9px;
@@ -303,7 +304,6 @@ textarea{
     width: 60px;
     height: 60px;
     position: absolute;
-    top: 260vh;
     background-image: url(img/icons.jpg);
     background-size: 140px;
     border-radius: 100%;
@@ -354,6 +354,7 @@ background-position: 60px 240px;
 	.icon-antes, .icon-depois{
 		display: block;
 		cursor: pointer;
+		top: 1400px;
 	}
 	.menu-bar{
 		display:block;
@@ -369,7 +370,7 @@ background-position: 60px 240px;
 		right: 0;
 		top: 48px;
 		background-color: #353535;
-		height: calc(100vh - 56px);
+		height: 106%;
 		width: 40%;
 	}
 	.menu-mobile li{
@@ -412,8 +413,11 @@ background-position: 60px 240px;
 	.desc_title{
 		margin-left: 5px;
 	}
-	.icon-antes, .icon-depois{
-		top: 246vh;
-	}
 }
-	
+	/* script */
+	.d-none{
+		display: none;
+	}
+	.d-block{
+		display: block;
+	}
